@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollbar-small::-webkit-scrollbar {
+    width: 0px; /* Adjusted scrollbar width */
+    height: 0px; /* Adjusted scrollbar height for horizontal scroll */
+  }
+  
+  .scrollbar-small::-webkit-scrollbar-track {
+    background:  transparent; /* Light background for the track */
+  }
+  
+  .scrollbar-small::-webkit-scrollbar-thumb {
+    background: transparent; /* Initial transparent thumb */
+    border-radius: 8px; /* Rounded edges for thumb */
+    height: 5px; /* Minimum height for the thumb */
+  }
+  
+  .scrollbar-small::-webkit-scrollbar-thumb:hover {
+    background: #333; /* Darker color on hover for better visibility */
+  }
+  
