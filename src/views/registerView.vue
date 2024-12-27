@@ -42,7 +42,7 @@ watch(
 
 <template>
   <!-- Register Page -->
-  <div class="w-full max-w-96 bg-white shadow-md p-4 rounded-md">
+  <div class="max-md:w-10/12 max-lg:w-4/12 w-3/12 bg-white shadow-md p-4 rounded-md">
     <!-- Header of Page -->
     <div class="flex flex-col justify-start items-center">
       <p class="font-bold text-xl text-blue-700">Register Account</p>

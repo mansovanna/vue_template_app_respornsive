@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="w-full border rounded-md relative">
+  <div class="w-full border rounded-md relative  hover:ring hover:ring-blue-500 ease-linear duration-200">
     <!-- Discount -->
     <p
       class="text-xs font-medium text-white bg-red-500 absolute -top-2 -left-1 border border-red-300 px-4 py-1 rounded-sm"

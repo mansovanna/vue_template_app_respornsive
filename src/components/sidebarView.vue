@@ -57,9 +57,8 @@ const slotMenu = useMenuSlot();
       <p class="text-sm">
         ©
         {{
-          new Date().getFullYear() + " " + new Date().toLocaleTimeString()
+          new Date().getFullYear()
         }}
-        All rights reserved.
       </p>
     </div>
   </div>

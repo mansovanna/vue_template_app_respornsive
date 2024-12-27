@@ -1,6 +1,6 @@
 <script setup>
 import { useAlertStore } from '@/stores/useAlertStore';
-import { useScreens } from '@/views/screen';
+import { useScreens } from '@/stores/screen';
 import closeIcon from '@/assets/icons/closeIcon.vue';
 import infoIcon from '@/assets/icons/infoIcon.vue';
 import tickIcon from '@/assets/icons/tickIcon.vue';

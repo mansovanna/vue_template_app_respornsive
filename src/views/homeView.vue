@@ -65,7 +65,7 @@ const scrollLeft = () => {
         <card-department
         v-on:click="viewVideo(post.id)"
           v-for="post in classPost" :key="post.id"
-          class="min-w-full snap-center cursor-pointer"
+          class="min-w-full snap-center cursor-pointer group"
          :posts="post"
         />
 

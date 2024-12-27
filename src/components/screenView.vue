@@ -53,15 +53,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="w-full h-screen box-content flex flex-row relative">
+  <div class="w-full h-screen box-content flex flex-row relative transition-all duration-500 ease-in-out dark:bg-blue-950">
    
     <!-- Block Sidebar -->
     <div
       class="h-screen w-72 max-lg:w-full bg-black bg-opacity-20 z-50 transition-all ease-in-out duration-1000 fixed top-0"
       :class="
         slotMenu.isOnOff == false
-          ? 'max-lg:left-0 max-xl:left-0 max-2xl:left-0'
-          : 'max-lg:-left-full max-xl:-left-72 max-2xl:-left-72'
+          ? 'max-lg:left-0 max-xl:left-0 max-2xl:left-0 lg:left-0'
+          : 'max-lg:-left-full max-xl:-left-72 max-2xl:-left-72 lg:-left-72 '
       "
     >
       <sidebar-view class="w-full max-w-72 h-screen border-r bg-white dark:bg-blue-950 dark:text-white" />

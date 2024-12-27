@@ -1,6 +1,41 @@
+
+<script setup>
+import { userAuthStore } from "@/stores/auth";
+import { ref, watch } from "vue";
+
+const data = ref({
+  email: "",
+  password: "",
+});
+
+const showValidationMessage = ref({
+  email: false,
+  password: false,
+});
+
+watch(
+  () => data.value.email,
+  (value) => {
+    // Show validation message if email is empty
+    showValidationMessage.value.email = !value;
+  }
+);
+
+watch(
+  () => data.value.password,
+  (value) => {
+    // Show validation message if password is empty
+    showValidationMessage.value.password = !value;
+  }
+);
+</script>
+
+
+
+
 <template>
   <!-- Login Page -->
-  <div class="w-full max-w-96 bg-white shadow-md p-4 rounded-md">
+  <div class=" max-md:w-10/12 max-lg:w-4/12 w-3/12 bg-white shadow-md p-4 rounded-md md">
     <!-- Header of Page -->
     <div class="flex flex-col justify-start items-center">
       <p class="font-bold text-xl text-blue-700">Login Account</p>
@@ -9,7 +44,7 @@
     </div>
 
     <!-- Form -->
-    <form class="mt-4">
+    <form class="mt-4" @submit.prevent="userAuthStore().login(data)">
       <!-- Block Email -->
       <div class="relative">
         <!-- Input Field -->
@@ -82,34 +117,3 @@
     </form>
   </div>
 </template>
-
-<script setup>
-import { ref, watch } from "vue";
-
-const data = ref({
-  email: "",
-  password: "",
-});
-
-const showValidationMessage = ref({
-  email: false,
-  password: false,
-});
-
-watch(
-  () => data.value.email,
-  (value) => {
-    // Show validation message if email is empty
-    showValidationMessage.value.email = !value;
-  }
-);
-
-watch(
-  () => data.value.password,
-  (value) => {
-    // Show validation message if password is empty
-    showValidationMessage.value.password = !value;
-  }
-);
-</script>
-
