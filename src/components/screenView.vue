@@ -6,10 +6,14 @@ import arrowUp02 from "@/assets/icons/arrowUp02.vue";
 import { useMenuSlot } from "@/stores/menuController";
 import { onMounted, onUnmounted, ref } from "vue";
 
+import loading from "./loading.vue";
+import { useLoadingStore } from "@/stores/loading";
 
 const isVisible = ref(false);
 const mainRef = ref(null); // Reference to the main element
 const slotMenu = useMenuSlot();
+
+const isLoading = useLoadingStore();
 
 // Function to scroll to the top of the main element
 const scrollToTop = () => {
@@ -26,10 +30,19 @@ const handleScroll = () => {
   }
 };
 
+
+
 onMounted(() => {
   if (mainRef.value) {
     mainRef.value.addEventListener("scroll", handleScroll);
   }
+
+  isLoading.startLoading();
+
+  setTimeout(() => {
+    isLoading.stopLoading();
+  },  1000);
+
 });
 
 onUnmounted(() => {
@@ -41,6 +54,7 @@ onUnmounted(() => {
 
 <template>
   <div class="w-full h-screen box-content flex flex-row relative">
+   
     <!-- Block Sidebar -->
     <div
       class="h-screen w-72 max-lg:w-full bg-black bg-opacity-20 z-50 transition-all ease-in-out duration-1000 fixed top-0"
@@ -57,9 +71,14 @@ onUnmounted(() => {
     <!-- Block Main -->
     <main
       ref="mainRef"
-      :class="slotMenu.isOnOff==false ? 'lg:ml-72' : ''"
-      class="w-full h-screen overflow-y-scroll sm:ml-0 transition-all duration-1000 ease-in-out relative"
+      :class="[
+        slotMenu.isOnOff==false ? 'lg:ml-72' : '',
+        isLoading.loading == false ? 'overflow-y-scroll' : 'overflow-hidden'
+      ]"
+      class="w-full h-screen  sm:ml-0 transition-all duration-1000 ease-in-out relative"
     >
+
+    
     <!-- Alert Form -->
 
     <!-- End Alert Form -->
@@ -73,10 +92,14 @@ onUnmounted(() => {
       <!-- End Nav-bar -->
 
       <!-- View Pages -->
-      <div class="relative">
-        <transition name="zoom" mode="out-in" appear>
+      <div class="relative" >
+        <transition  name="zoom" mode="out-in" appear v-if="isLoading.loading == false">
           <RouterView class="px-2 py-2" />
         </transition>
+
+        <!-- loading -->
+          <loading/>
+        <!-- End Loading -->
       </div>
       <!-- End View Pages -->
 

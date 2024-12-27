@@ -11,10 +11,9 @@ import earthIcon from "@/assets/icons/earthIcon.vue";
 import moonIcon from "@/assets/icons/moonIcon.vue";
 import sunIcon from "@/assets/icons/sunIcon.vue";
 import { useDarkModeStore } from "@/stores/darkMode";
-import { useTostAlert } from "@/stores/alertTost";
+import { useAlertStore } from "@/stores/useAlertStore";
 
-const useTost = useTostAlert();
-
+const alertStore = useAlertStore();
 
 const storeDarkMode = useDarkModeStore();
 </script>
@@ -88,7 +87,7 @@ const storeDarkMode = useDarkModeStore();
       <!-- Setting -->
       <div class="grid grid-cols-1 divide-y mt-4">
         <button
-          v-on:click="useTost.postTost('Sorry!, The Developer is not Development this Function.', 'Warning')"
+            v-on:click="alertStore.addAlert('warning', 'Sorry!, The feature Edit Profile page is not develop ready! ')"
           class="active:bg-gray-50 hover:bg-gray-100   dark:hover:text-black rounded-sm p-2"  >
           <user-card
             :icon="editIcon"
@@ -103,7 +102,7 @@ const storeDarkMode = useDarkModeStore();
         </button>
 
         <button
-        v-on:click="useTost.postTost('Sorry!, The Developer is not Development this Function.', 'Error')"
+         v-on:click="alertStore.addAlert('warning', 'Sorry!, The feature Change Password page is not develop ready! ', 9000)"
         class="active:bg-gray-50 hover:bg-gray-100 dark:hover:text-black rounded-sm p-2">
           <user-card
             :icon="squarelock02"
@@ -134,7 +133,7 @@ const storeDarkMode = useDarkModeStore();
             :size="'8'"
           />
           <!-- checked -->
-          <input type="checkbox" class="sr-only peer" 
+          <input type="checkbox" class="sr-only peer"
           v-model="storeDarkMode.darkMode"
           @change="storeDarkMode.toggleDarkMode"
           />
@@ -156,7 +155,7 @@ const storeDarkMode = useDarkModeStore();
         <!-- ------------------ -->
 
         <button
-        v-on:click="useTost.postTost('Sorry!, The Developer is not Development this Function.', 'Success')"
+         v-on:click="alertStore.addAlert('warning', 'Sorry!, The feature Language page is not develop ready! ')"
         class="active:bg-gray-50 hover:bg-gray-100 dark:hover:text-black rounded-sm p-2">
           <user-card
             :icon="earthIcon"
@@ -173,6 +172,7 @@ const storeDarkMode = useDarkModeStore();
        
       </div>
       <!-- End Setting -->
+
     </div>
     <!-- End Block Setting -->
   </div>

@@ -38,7 +38,12 @@ const routes = [
         path: '/about',
         name: 'about',
         component: import("@/views/aboutView.vue")
-      }
+      },
+      {
+        path: '/class/:id',
+        name: 'class',
+        component: import("@/views/videoView.vue")
+      },
     ]
   }
 ]

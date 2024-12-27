@@ -6,7 +6,7 @@ import profileCard from "./profileCard.vue";
 import cardHover from "./cardHover.vue";
 import { useMenuSlot } from "@/stores/menuController";
 
-import { useScreens } from "@/stores/screen";
+import { useScreens } from "@/views/screen";
 
 const screen = useScreens();
 

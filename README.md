@@ -17,3 +17,8 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### How to use Tost Alert
+<!-- useTost.postTost('success', 'Hello this app', 5000) -->
+<!-- message, delay, title -->

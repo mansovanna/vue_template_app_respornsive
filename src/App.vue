@@ -2,9 +2,9 @@
 import { RouterView } from 'vue-router';
 import { onMounted, onUnmounted } from "vue";
 
-import { useScreens } from './stores/screen';
+import { useScreens } from './views/screen';
 
-import tostAlert from './components/tostAlert.vue';
+import AlertTost from './components/AlertTost.vue';
 
 const screens = useScreens();
 
@@ -25,7 +25,7 @@ onUnmounted(() => {
 
 <template>
   <div class="flex justify-center items-center h-screen bg-gray-100 dark:bg-blue-950 transition-all duration-1000 ease-in-out ">
-    <tost-alert/>
+    <alert-tost/>
     <RouterView />
   </div>
 </template>
